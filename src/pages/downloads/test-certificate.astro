@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Generate Test Certificate | Elmech Engineering" description="Generate and verify test certificates for your Elmech industrial gearboxes.">
+  <section class="relative py-24 border-b border-slate-200 overflow-hidden bg-slate-900">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000&auto=format&fit=crop" alt="Precision Gear Inspection" class="w-full h-full object-cover filter brightness-90 contrast-105" />
+    </div>
+    <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-[1px] z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-900/30 to-slate-900/60 z-0"></div>
+    
+    <div class="container mx-auto px-4 relative z-10 text-center">
+      <div class="max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-blue-300 font-bold px-4 py-1.5 rounded-full mb-4 text-xs uppercase tracking-wider backdrop-blur-md shadow-sm">
+          Quality Assurance
+        </div>
+        <h1 class="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight drop-shadow-lg">Generate <span class="text-blue-400">Test Certificate</span></h1>
+        <p class="text-lg md:text-xl text-slate-200 font-medium max-w-2xl mx-auto drop-shadow-md">
+          Verify the quality, torque ratings, and compliance of your Elmech products with our automated certificate generator.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50 min-h-screen">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-sm mb-12">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">Verify & Generate Test Certificate</h2>
+        <p class="text-slate-600 font-medium leading-relaxed mb-8">
+          Every gearbox and geared motor manufactured at Elmech Engineering Company receives a dedicated inspection serial number after completing mandatory no-load spin tests, noise level checks, and oil-tightness verification.
+        </p>
+
+        <form class="space-y-6" onsubmit="event.preventDefault(); document.getElementById('cert-result').classList.remove('hidden');">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="serial-no" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Unit Serial / Job Number *</label>
+              <input type="text" id="serial-no" required placeholder="e.g., ELM-2026-W83" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-semibold focus:outline-none focus:border-blue-600 focus:bg-white transition-all" />
+            </div>
+            <div>
+              <label for="product-type" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Product Category *</label>
+              <select id="product-type" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-semibold focus:outline-none focus:border-blue-600 focus:bg-white transition-all">
+                <option value="worm">Worm Gear Box (SU / UFR / NMRV)</option>
+                <option value="geared-motor">Helical Geared Motor (2/3-Stage)</option>
+                <option value="extruder">Extruder Gearbox (Single/Twin Screw)</option>
+                <option value="motor">3-Phase Induction Electric Motor</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl shadow-md transition-all hover:shadow-lg">
+            Verify & Generate Inspection Certificate (PDF)
+          </button>
+        </form>
+
+        <!-- Dynamic Success / Preview Container -->
+        <div id="cert-result" class="hidden mt-8 p-6 rounded-2xl bg-emerald-50 border border-emerald-200">
+          <div class="flex items-center gap-3 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <h4 class="text-base font-bold text-emerald-900">Official Factory Inspection Record Verified</h4>
+          </div>
+          <p class="text-xs text-emerald-800 leading-relaxed mb-4">
+            Unit conforms to IS:325 / IS:1231 standards. 100% No-load spin test cleared, zero oil leakage observed, noise levels under 75 dB(A) at rated RPM.
+          </p>
+          <a href="#" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download Signed Certificate PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

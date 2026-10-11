@@ -1,0 +1,304 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import RFQForm from '../components/RFQForm.astro';
+
+const featuredProducts = [
+  {
+    name: "Worm Gear Box & Transmech Series",
+    slug: "worm-gear-box",
+    category: "Worm Gear",
+    imageUrl: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=600&auto=format&fit=crop",
+    gearRatio: "5:1 to 4900:1",
+    outputTorque: "44.5mm - 304.8mm C.D.",
+    pdfUrl: "/downloads/catalogue"
+  },
+  {
+    name: "Helical Geared Motor",
+    slug: "helical-geared-motor",
+    category: "Geared Motor",
+    imageUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop",
+    gearRatio: "1.5 to 450 RPM",
+    outputTorque: "0.5 HP to 20.0 HP",
+    pdfUrl: "/downloads/catalogue"
+  },
+  {
+    name: "Helical & Extruder Gear Box",
+    slug: "helical-gear-box",
+    category: "Helical Gear",
+    imageUrl: "https://images.unsplash.com/photo-1565261394747-0e69128f731f?q=80&w=600&auto=format&fit=crop",
+    gearRatio: "Single & Twin Screw",
+    outputTorque: "Heavy Thrust 294..E",
+    pdfUrl: "/downloads/catalogue"
+  },
+  {
+    name: "3-Phase Induction Motor",
+    slug: "industrial-motor",
+    category: "Motors",
+    imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop",
+    gearRatio: "415V, 50Hz, S1 Duty",
+    outputTorque: "0.12 HP to 10 HP",
+    pdfUrl: "/downloads/catalogue"
+  }
+];
+
+const features = [
+  {
+    title: "Engineering Heritage & Precision",
+    description: "Established in Vatva, Ahmedabad, we strive to achieve new frontiers of technical excellence in industrial power transmission.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>`
+  },
+  {
+    title: "Case-Hardened & Ground Gears",
+    description: "Worm shafts and helical pinions crafted from 18NiCrMo5 alloy steel, gas-carburized and precision profile-ground for quiet operation and high torque transmission.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>`
+  },
+  {
+    title: "IS Standards & Full Testing",
+    description: "Every unit is thoroughly inspected at multiple stages and tested on no-load for oil leakage, noise level, and thermal dissipation conforming to IS:325, IS:1231, and IP-55.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>`
+  }
+];
+---
+
+<Layout title="Elmech Engineering Company | Industrial Gearboxes & Power Transmission Systems">
+  
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">
+    <!-- Carousel Images -->
+    <div id="hero-carousel" class="absolute inset-0 z-0">
+      <div class="carousel-item absolute inset-0 opacity-100 transition-opacity duration-[1500ms]">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover animate-ken-burns filter brightness-90 contrast-105" alt="Precision CNC Machining" />
+      </div>
+      <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-[1500ms]">
+        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover animate-ken-burns filter brightness-90 contrast-105" alt="Industrial Gears Manufacturing" />
+      </div>
+      <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-[1500ms]">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover animate-ken-burns filter brightness-90 contrast-105" alt="Heavy Manufacturing Plant" />
+      </div>
+      <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-[1500ms]">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover animate-ken-burns filter brightness-90 contrast-105" alt="Industrial Engineering Workshop" />
+      </div>
+    </div>
+    
+    <!-- Dark balanced overlay preserving full background visibility and text contrast -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/75 z-0"></div>
+    <div class="absolute inset-0 bg-blue-950/20 z-0"></div>
+    
+    <div class="container mx-auto px-4 relative z-10 text-center py-32 flex flex-col items-center">
+      <div class="animate-fade-in-up max-w-5xl w-full flex flex-col items-center">
+        <div class="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-blue-300 font-bold px-6 py-2.5 rounded-full mb-6 text-sm md:text-base tracking-widest uppercase shadow-lg backdrop-blur-md">
+          <span class="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse"></span>
+          Welcome to ELMECH &bull; Heavy Industrial Power Transmission
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter drop-shadow-2xl">
+          High Quality <br/>
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-sky-300 to-blue-200">
+            Services
+          </span>
+        </h1>
+        
+        <p class="text-lg md:text-2xl text-slate-200 font-medium mb-12 leading-relaxed mx-auto max-w-3xl drop-shadow-lg">
+          ELMECH has consistently embraced innovation to provide a superior level of excellence. We provide full and specific solutions for every customer.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+          <a href="#products" class="group relative px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg rounded-xl overflow-hidden transition-all hover:scale-105 shadow-2xl shadow-blue-500/40">
+            <span class="relative flex items-center justify-center gap-2">
+              Explore Our Range
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+          <a href="#rfq" class="group px-8 py-4 bg-white/15 hover:bg-white/25 text-white border border-white/30 font-bold text-lg rounded-xl transition-all hover:scale-105 backdrop-blur-md shadow-xl">
+            Request a Quote
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center animate-bounce-slow opacity-90">
+      <span class="text-white text-sm font-bold tracking-widest uppercase mb-2 drop-shadow-md">Scroll</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-md"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-24 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
+    <!-- Visible Manufacturing Background Accent -->
+    <div class="absolute inset-0 z-0 opacity-25">
+      <img src="https://images.unsplash.com/photo-1565261394747-0e69128f731f?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Machinery Background" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-50/80 via-slate-50/90 to-slate-50 z-0"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">The Elmech Advantage</h2>
+        <p class="text-slate-600 text-lg max-w-2xl mx-auto font-medium">Why cement, plastics, steel, and material handling industries across India trust Elmech power transmission systems.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {features.map((feature, i) => (
+          <div class="group p-8 rounded-2xl bg-white/95 backdrop-blur-sm border border-slate-200 shadow-md hover:border-blue-500/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll" style={`animation-delay: ${i * 150}ms`}>
+            <div class="w-14 h-14 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm">
+              <Fragment set:html={feature.icon} />
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+            <p class="text-slate-600 leading-relaxed font-medium">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section id="products" class="py-32 bg-white border-t border-slate-200 relative">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 animate-on-scroll">
+        <div class="max-w-3xl">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Engineered <span class="text-blue-600">Product Range</span></h2>
+          <p class="text-slate-600 text-xl font-medium">Precision gear units manufactured in multiple sizes, ratios, and adaptable mounting configurations.</p>
+        </div>
+        <a href="/products" class="text-blue-700 hover:text-blue-800 font-bold flex items-center gap-2 group tracking-wide bg-blue-50 px-6 py-3 rounded-full border border-blue-200 hover:border-blue-300 transition-all shadow-sm">
+          View All Products & Specs
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {featuredProducts.map((product, i) => (
+          <div class="animate-on-scroll" style={`animation-delay: ${i * 150}ms`}>
+            <!-- The ProductCard component handles its own layout, but we wrap it to control animation and layout spacing if needed -->
+            <ProductCard 
+              name={product.name}
+              slug={product.slug}
+              category={product.category}
+              imageUrl={product.imageUrl}
+              gearRatio={product.gearRatio}
+              outputTorque={product.outputTorque}
+              pdfUrl={product.pdfUrl}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RFQ Section -->
+  <section id="rfq" class="py-32 bg-slate-900 relative overflow-hidden border-t border-slate-200">
+    <!-- Visible Manufacturing Workshop Background -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover filter brightness-75 contrast-110" alt="Industrial Manufacturing Workshop" />
+    </div>
+    <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-[2px] z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900/70 z-0"></div>
+    
+    <div class="container mx-auto px-4 relative z-10 animate-on-scroll">
+      <div class="max-w-4xl mx-auto shadow-2xl rounded-3xl overflow-hidden">
+        <RFQForm />
+      </div>
+    </div>
+  </section>
+  
+</Layout>
+
+<style>
+  /* Glassmorphism utility */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Animations */
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes ken-burns {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.15);
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-ken-burns {
+    animation: ken-burns 15s ease-out infinite alternate;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce-slow 3s infinite ease-in-out;
+  }
+
+  /* Scroll Reveal Utility */
+  .reveal-active {
+    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Carousel Logic
+    const items = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+
+    if (items.length > 0) {
+      setInterval(() => {
+        items[currentIndex].classList.remove('opacity-100');
+        items[currentIndex].classList.add('opacity-0');
+        
+        currentIndex = (currentIndex + 1) % items.length;
+        
+        items[currentIndex].classList.remove('opacity-0');
+        items[currentIndex].classList.add('opacity-100');
+      }, 6000); // Change image every 6 seconds
+    }
+
+    // Scroll Reveal Logic
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-active');
+          entry.target.classList.remove('opacity-0');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach((elem) => {
+      elem.classList.add('opacity-0'); // Hide initially
+      observer.observe(elem);
+    });
+  });
+</script>
