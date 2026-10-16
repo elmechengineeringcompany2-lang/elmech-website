@@ -25,9 +25,10 @@ export default defineType({
       type: 'string',
       options: {
         list: [
-          { title: 'Helical Gearbox', value: 'helical' },
-          { title: 'Worm Gearbox', value: 'worm' },
-          { title: 'Crane Duty Gearbox', value: 'crane-duty' },
+          { title: 'Worm Gearbox', value: 'worm-gearbox' },
+          { title: 'Helical Gear Motor / Gearbox', value: 'helical-gear-motor' },
+          { title: 'Parallel Shaft Helical Gearbox', value: 'parallel-shaft-helical' },
+          { title: 'Planetary Gearbox', value: 'planetary-gearbox' },
         ],
       },
       validation: (Rule) => Rule.required(),

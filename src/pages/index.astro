@@ -2,63 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import RFQForm from '../components/RFQForm.astro';
-
-const featuredProducts = [
-  {
-    name: "Worm Gear Box & Transmech Series",
-    slug: "worm-gear-box",
-    category: "Worm Gear",
-    imageUrl: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=600&auto=format&fit=crop",
-    gearRatio: "5:1 to 4900:1",
-    outputTorque: "44.5mm - 304.8mm C.D.",
-    pdfUrl: "/downloads/catalogue"
-  },
-  {
-    name: "Helical Geared Motor",
-    slug: "helical-geared-motor",
-    category: "Geared Motor",
-    imageUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop",
-    gearRatio: "1.5 to 450 RPM",
-    outputTorque: "0.5 HP to 20.0 HP",
-    pdfUrl: "/downloads/catalogue"
-  },
-  {
-    name: "Helical & Extruder Gear Box",
-    slug: "helical-gear-box",
-    category: "Helical Gear",
-    imageUrl: "https://images.unsplash.com/photo-1565261394747-0e69128f731f?q=80&w=600&auto=format&fit=crop",
-    gearRatio: "Single & Twin Screw",
-    outputTorque: "Heavy Thrust 294..E",
-    pdfUrl: "/downloads/catalogue"
-  },
-  {
-    name: "3-Phase Induction Motor",
-    slug: "industrial-motor",
-    category: "Motors",
-    imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop",
-    gearRatio: "415V, 50Hz, S1 Duty",
-    outputTorque: "0.12 HP to 10 HP",
-    pdfUrl: "/downloads/catalogue"
-  }
-];
-
-const features = [
-  {
-    title: "Engineering Heritage & Precision",
-    description: "Established in Vatva, Ahmedabad, we strive to achieve new frontiers of technical excellence in industrial power transmission.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>`
-  },
-  {
-    title: "Case-Hardened & Ground Gears",
-    description: "Worm shafts and helical pinions crafted from 18NiCrMo5 alloy steel, gas-carburized and precision profile-ground for quiet operation and high torque transmission.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>`
-  },
-  {
-    title: "IS Standards & Full Testing",
-    description: "Every unit is thoroughly inspected at multiple stages and tested on no-load for oil leakage, noise level, and thermal dissipation conforming to IS:325, IS:1231, and IP-55.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>`
-  }
-];
+import GoogleReviews from '../components/GoogleReviews.astro';
+import { productFamilies } from '../data/products';
 ---
 
 <Layout title="Elmech Engineering Company | Industrial Gearboxes & Power Transmission Systems">
@@ -89,7 +34,7 @@ const features = [
       <div class="animate-fade-in-up max-w-5xl w-full flex flex-col items-center">
         <div class="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-blue-300 font-bold px-6 py-2.5 rounded-full mb-6 text-sm md:text-base tracking-widest uppercase shadow-lg backdrop-blur-md">
           <span class="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse"></span>
-          Welcome to ELMECH &bull; Heavy Industrial Power Transmission
+          Welcome to ELMECH &bull;
         </div>
         
         <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter drop-shadow-2xl">
@@ -124,30 +69,59 @@ const features = [
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="py-24 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
-    <!-- Visible Manufacturing Background Accent -->
-    <div class="absolute inset-0 z-0 opacity-25">
-      <img src="https://images.unsplash.com/photo-1565261394747-0e69128f731f?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Machinery Background" />
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-50/80 via-slate-50/90 to-slate-50 z-0"></div>
-    
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="text-center mb-16 animate-on-scroll">
-        <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">The Elmech Advantage</h2>
-        <p class="text-slate-600 text-lg max-w-2xl mx-auto font-medium">Why cement, plastics, steel, and material handling industries across India trust Elmech power transmission systems.</p>
+  <section class="py-24 bg-white border-t border-slate-200">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            We provide full and specific solutions for our every customers.
+          </h2>
+          <p class="mt-6 text-lg text-slate-600 leading-relaxed font-medium">
+            Ever since Elmech Engineering Company's establishment 25 years ago, we have strived to achieve new frontiers of technical excellence. Gear units are manufactured in different sizes and ratios in adaptable, SU and Fix mounting type. It is available from 44.5 mm to 304.8 mm centre distance and 5:1 to 70:1 in single stage and upto 4900:1 in double stage.
+          </p>
+        </div>
+
+        <div id="home-video" class="relative overflow-hidden rounded-3xl bg-slate-100 shadow-xl border border-slate-200 aspect-video">
+          <button type="button" id="home-video-poster" class="group absolute inset-0 h-full w-full" aria-label="Play Elmech gearbox video">
+            <img src="/products/Extruder-duty-gearbox.png" alt="Elmech extruder duty gearbox" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <span class="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/30 transition-colors"></span>
+            <span class="absolute inset-0 flex items-center justify-center">
+              <span class="flex h-16 w-16 items-center justify-center rounded-full bg-red-600 text-white shadow-lg shadow-red-600/30 transition-transform group-hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+              </span>
+            </span>
+          </button>
+        </div>
       </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {features.map((feature, i) => (
-          <div class="group p-8 rounded-2xl bg-white/95 backdrop-blur-sm border border-slate-200 shadow-md hover:border-blue-500/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll" style={`animation-delay: ${i * 150}ms`}>
-            <div class="w-14 h-14 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm">
-              <Fragment set:html={feature.icon} />
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-            <p class="text-slate-600 leading-relaxed font-medium">{feature.description}</p>
+
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-slate-200 pt-12">
+        <div class="flex gap-4">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-md shadow-blue-600/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path></svg>
           </div>
-        ))}
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">25 Years of Experience</h3>
+            <p class="mt-1 text-slate-600 leading-relaxed">The great explorer the truth, the master builder human happiness one rejects ut, dislikes pleasure workers.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-md shadow-blue-600/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">Licensed &amp; Insured</h3>
+            <p class="mt-1 text-slate-600 leading-relaxed">Must explain to you how this mistaken of idea denouncing pleasure ut and praising pain was complete account.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-md shadow-blue-600/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">Honest &amp; Dependable</h3>
+            <p class="mt-1 text-slate-600 leading-relaxed">Denouncing pleasure and praising pain us was born and it will give you a completed and expound great explorer.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -169,17 +143,16 @@ const features = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {featuredProducts.map((product, i) => (
+        {productFamilies.map((family, i) => (
           <div class="animate-on-scroll" style={`animation-delay: ${i * 150}ms`}>
-            <!-- The ProductCard component handles its own layout, but we wrap it to control animation and layout spacing if needed -->
-            <ProductCard 
-              name={product.name}
-              slug={product.slug}
-              category={product.category}
-              imageUrl={product.imageUrl}
-              gearRatio={product.gearRatio}
-              outputTorque={product.outputTorque}
-              pdfUrl={product.pdfUrl}
+            <ProductCard
+              name={family.name}
+              slug={family.id}
+              category="Product Family"
+              imageUrl={family.imageUrl}
+              summary={family.products.map((product) => product.name).join(" · ")}
+              href={`/products#${family.id}`}
+              ctaLabel="View Range"
             />
           </div>
         ))}
@@ -187,17 +160,22 @@ const features = [
     </div>
   </section>
 
-  <!-- RFQ Section -->
-  <section id="rfq" class="py-32 bg-slate-900 relative overflow-hidden border-t border-slate-200">
-    <!-- Visible Manufacturing Workshop Background -->
-    <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover filter brightness-75 contrast-110" alt="Industrial Manufacturing Workshop" />
+  <section class="relative overflow-hidden border-t border-slate-800 bg-slate-950 py-16 lg:py-24">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(37,99,235,0.28),transparent_55%)]"></div>
+    <div class="container relative z-10 mx-auto px-4">
+      <GoogleReviews />
     </div>
-    <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-[2px] z-0"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900/70 z-0"></div>
-    
-    <div class="container mx-auto px-4 relative z-10 animate-on-scroll">
-      <div class="max-w-4xl mx-auto shadow-2xl rounded-3xl overflow-hidden">
+  </section>
+
+  <section id="rfq" class="relative overflow-hidden border-t border-slate-200 bg-slate-900 py-32">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000&auto=format&fit=crop" class="h-full w-full object-cover brightness-75 contrast-110" alt="Industrial Manufacturing Workshop" />
+    </div>
+    <div class="absolute inset-0 z-0 bg-slate-900/50 backdrop-blur-[2px]"></div>
+    <div class="absolute inset-0 z-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900/70"></div>
+
+    <div class="container relative z-10 mx-auto px-4">
+      <div class="mx-auto max-w-4xl overflow-hidden rounded-3xl shadow-2xl">
         <RFQForm />
       </div>
     </div>
@@ -299,6 +277,13 @@ const features = [
     document.querySelectorAll('.animate-on-scroll').forEach((elem) => {
       elem.classList.add('opacity-0'); // Hide initially
       observer.observe(elem);
+    });
+
+    const videoPoster = document.getElementById('home-video-poster');
+    const videoFrame = document.getElementById('home-video');
+    videoPoster?.addEventListener('click', () => {
+      if (!videoFrame) return;
+      videoFrame.innerHTML = `<iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/9wRRwtxkZuw?autoplay=1" title="Elmech gearbox on YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
     });
   });
 </script>
