@@ -32,8 +32,12 @@ const { title, description = "Elmech Engineering Company"} = Astro.props;
   <body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen selection:bg-blue-600 selection:text-white">
     <header class="border-b border-slate-200/80 bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-sm transition-all">
       <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="flex items-center">
-          <img src="/logo.png" alt="Elmech Engineering Company Logo" class="h-10 md:h-12 object-contain" />
+        <a href="/" class="group flex items-center gap-2.5 min-w-0" aria-label="Elmech Engineering Company">
+          <img src="/logo-mark.png" alt="" width="140" height="154" class="h-11 w-auto md:h-14 shrink-0 transition-transform duration-300 group-hover:scale-105" />
+          <span class="leading-none">
+            <span class="block text-lg md:text-[1.65rem] font-black tracking-tight text-slate-900">ELMECH</span>
+            <span class="mt-1 block text-[10px] md:text-xs font-semibold italic tracking-wide text-slate-500">Engineering Company</span>
+          </span>
         </a>
         <nav class="hidden lg:flex gap-8 font-semibold text-slate-600 items-center">
           <a href="/about" class="hover:text-blue-600 transition-colors py-2">About Us</a>
