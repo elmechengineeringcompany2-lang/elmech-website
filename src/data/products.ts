@@ -21,9 +21,9 @@ export const productFamilies: ProductFamily[] = [
     imageUrl: "/products/Sv-series-gearbox.png",
     products: [
       {
-        name: "SV Series Gearbox",
+        name: "SU Series Gearbox",
         slug: "sv-series-gearbox",
-        summary: "SV series worm gearbox for industrial speed reduction.",
+        summary: "SU series worm gearbox for industrial speed reduction.",
         imageUrl: "/products/Sv-series-gearbox.png",
       },
       {
